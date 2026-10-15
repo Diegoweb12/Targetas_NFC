@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><title>RatingPro — Tarjetas NFC y QR para reseñas de Google</title><meta content="Tarjetas NFC con código QR para conseguir más reseñas de 5 estrellas en tu ficha de Google. Pago único, sin apps y sin cuotas." name="description"/><meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-background': '#131b2e', 'inverse-on-surface': '#eef0ff', 'surface-dim': '#d2d9f4', 'primary-fixed': '#b0f0d6', 'tertiary-fixed': '#68fcbf', 'on-primary-fixed': '#002117', 'error': '#ba1a1a', 'on-secondary-container': '#00714e', 'secondary-fixed': '#85f8c4', 'inverse-surface': '#283044', 'on-secondary': '#ffffff', 'tertiary-fixed-dim': '#45dfa4', 'surface-container-low': '#f2f3ff', 'on-secondary-fixed': '#002114', 'secondary-container': '#82f5c1', 'secondary': '#006c4a', 'surface-container-lowest': '#ffffff', 'on-surface-variant': '#404944', 'on-error': '#ffffff', 'on-primary-container': '#80bea6', 'on-primary': '#ffffff', 'inverse-primary': '#95d3ba', 'surface-bright': '#faf8ff', 'outline-variant': '#bfc9c3', 'secondary-fixed-dim': '#68dba9', 'primary-container': '#064e3b', 'on-secondary-fixed-variant': '#005137', 'tertiary': '#003623', 'surface-container': '#eaedff', 'on-surface': '#131b2e', 'outline': '#707974', 'on-tertiary-fixed': '#002114', 'surface': '#faf8ff', 'surface-tint': '#2b6954', 'primary-fixed-dim': '#95d3ba', 'tertiary-container': '#004f35', 'on-error-container': '#93000a', 'surface-container-highest': '#dae2fd', 'on-primary-fixed-variant': '#0b513d', 'surface-container-high': '#e2e7ff', 'on-tertiary': '#ffffff', 'on-tertiary-container': '#23ca90', 'primary': '#003527', 'surface-variant': '#dae2fd', 'background': '#faf8ff', 'on-tertiary-fixed-variant': '#005137', 'error-container': '#ffdad6' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'space-xl': '2.5rem', 'space-md': '1rem', 'space-sm': '0.5rem', 'space-xs': '0.25rem', 'space-lg': '1.5rem', 'gutter-mobile': '1rem', 'margin': '3rem', 'gutter': '1.5rem', 'margin-mobile': '1.25rem' }, fontFamily: { 'headline-lg-mobile': ['Plus Jakarta Sans'], 'headline-lg': ['Plus Jakarta Sans'], 'label-md': ['Plus Jakarta Sans'], 'display-lg-mobile': ['Plus Jakarta Sans'], 'headline-md': ['Plus Jakarta Sans'], 'headline-sm': ['Plus Jakarta Sans'], 'body-md': ['Plus Jakarta Sans'], 'label-sm': ['Plus Jakarta Sans'], 'body-lg': ['Plus Jakarta Sans'], 'body-sm': ['Plus Jakarta Sans'], 'label-lg': ['Plus Jakarta Sans'], 'display-lg': ['Plus Jakarta Sans'] }, fontSize: { 'headline-lg-mobile': ['1.75rem', { lineHeight: '1.25', letterSpacing: '-0.01em', fontWeight: '800' }], 'headline-lg': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '800' }], 'label-md': ['0.75rem', { lineHeight: '1.2', letterSpacing: '0.04em', fontWeight: '600' }], 'display-lg-mobile': ['2.25rem', { lineHeight: '1.15', letterSpacing: '-0.02em', fontWeight: '800' }], 'headline-md': ['1.75rem', { lineHeight: '1.3', letterSpacing: '-0.015em', fontWeight: '700' }], 'headline-sm': ['1.25rem', { lineHeight: '1.4', letterSpacing: '-0.01em', fontWeight: '700' }], 'body-md': ['1rem', { lineHeight: '1.5', letterSpacing: '0em', fontWeight: '400' }], 'label-sm': ['0.6875rem', { lineHeight: '1.2', letterSpacing: '0.05em', fontWeight: '600' }], 'body-lg': ['1.125rem', { lineHeight: '1.6', letterSpacing: '0em', fontWeight: '400' }], 'body-sm': ['0.875rem', { lineHeight: '1.4', letterSpacing: '0.01em', fontWeight: '400' }], 'label-lg': ['0.875rem', { lineHeight: '1.2', letterSpacing: '0.02em', fontWeight: '700' }], 'display-lg': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '800' }] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 0.5rem);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}</style></head><body class="bg-surface text-on-surface font-body-md antialiased"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter-mobile flex items-center justify-between w-full max-w-2xl mx-auto"><div class="flex items-center gap-space-sm"><div class="h-9 flex items-center"><img alt="RatingPro" class="h-9 w-auto max-w-[140px] object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_JfOli0cgMEc1SDjomswxhfs14ID12v5dqKRIey_p69lqAvHuvFjllhyvmZVL1Xcyf6x6tul-JcXHkpBLHE7dJlGmtwaVQymmXAlsosaoamehWPsmuIDcQcazStQqTjj9eOJVkkD5RvYYeAGxcvXrecX0ekqAntTv3UsOiufgFhaIjOVMfxkxg0_HvuSHFYEi1LWR-2SRXMQbsbHSrF6QuRkOj0nwpLdH9qruQz1_a8wRI0tMP_yeoZUmG7oFIKP1mVs"/></div><span class="hidden">Inicio</span></div><div class="flex items-center gap-space-sm"><a class="h-10 px-space-md flex items-center justify-center bg-secondary hover:bg-primary text-on-secondary rounded-xl font-label-lg text-label-lg transition-colors duration-150" href="#contacto">Contactar</a></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full max-w-2xl mx-auto text-on-surface">
+<!-- 1. HERO SECTION & 3D INTERACTIVE VIEWER -->
+<section class="w-full px-gutter-mobile pt-space-md pb-space-xl flex flex-col gap-space-lg bg-surface" id="inicio">
+<!-- Top Micro Badge -->
+<div class="flex items-center">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-primary-fixed/30 text-primary-container font-label-md text-label-md shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">bolt</span>
+<span>Tarjetas inteligentes con tecnología NFC + QR</span>
+</div>
+</div>
+<!-- Main Headline & Subtitle -->
+<div class="flex flex-col gap-space-sm">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">
+        Consigue más reseñas en Google <span class="text-secondary">con un solo toque</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Tarjetas NFC inteligentes con código QR integrado. Tu cliente acerca su smartphone y accede directamente a tu ficha de Google para dejar su valoración 5 estrellas en menos de 5 segundos.
+      </p>
+</div>
+<!-- Quick Metrics Badges -->
+<div class="grid grid-cols-3 gap-space-xs">
+<div class="flex flex-col items-center justify-center p-space-sm bg-surface-container-lowest rounded-xl shadow-sm text-center">
+<span class="font-headline-sm text-headline-sm text-secondary">&lt; 5 seg</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sin esperas</span>
+</div>
+<div class="flex flex-col items-center justify-center p-space-sm bg-surface-container-lowest rounded-xl shadow-sm text-center">
+<span class="font-headline-sm text-headline-sm text-primary">100% Nativo</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sin instalar apps</span>
+</div>
+<div class="flex flex-col items-center justify-center p-space-sm bg-surface-container-lowest rounded-xl shadow-sm text-center">
+<span class="font-headline-sm text-headline-sm text-secondary">0 € Cuotas</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pago único</span>
+</div>
+</div>
+<!-- CTA Action Group -->
+<div class="flex flex-col gap-space-sm">
+<a class="w-full h-12 flex items-center justify-center gap-space-xs bg-secondary hover:bg-primary-container text-on-secondary rounded-xl font-label-lg text-label-lg shadow-md transition-all active:scale-[0.99]" href="#contacto">
+<span>Pedir información</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+<a class="w-full h-12 flex items-center justify-center gap-space-xs bg-surface-container-lowest hover:bg-surface-container text-primary-container rounded-xl font-label-lg text-label-lg shadow-sm transition-colors" href="#como-funciona">
+<span class="material-symbols-outlined text-[20px] text-secondary">info</span>
+<span>Cómo funciona</span>
+</a>
+</div>
+<!-- VISOR 3D INMERSIVO HIPERINTERACTIVO -->
+<div class="relative w-full flex flex-col gap-3 mt-2">
+<div class="relative w-full rounded-3xl overflow-hidden bg-gradient-to-b from-primary-container via-[#003527] to-[#01251b] p-3 shadow-2xl border border-secondary/20">
+<!-- Overlay Header with Status Indicator -->
+<div class="flex items-center justify-between mb-2 px-2 pt-1 z-20 relative">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">view_in_ar</span>
+<span class="font-label-sm text-label-sm text-surface-bright tracking-wider uppercase font-bold">Visor 3D Interactivo</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container/20 border border-secondary/30 text-tertiary-fixed text-label-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-ping"></span>
+<span class="font-semibold">NFC Dinámico</span>
+</div>
+</div>
+<!-- ThreeJS Interactive 3D Scene Component -->
+<!-- STITCH_THREEJS_START:ANIMATION_16 class="w-full h-[520px] rounded-3xl mx-auto relative z-10 shadow-2xl bg-primary-container/30" -->
+<div class="w-full h-[520px] rounded-3xl mx-auto relative z-10 shadow-2xl bg-primary-container/30" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_16" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_16');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Escena Three.js interactiva: Tarjeta NFC Vertical idéntica a la imagen de referencia
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || (window.innerHeight * 0.65);
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+camera.position.set(0, 0, 7.2);
+
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+container.appendChild(renderer.domElement);
+
+// Iluminación realista
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
+scene.add(ambientLight);
+
+const mainSpot = new THREE.SpotLight(0xffffff, 2.8, 25, Math.PI / 4, 0.3);
+mainSpot.position.set(4, 7, 8);
+mainSpot.castShadow = true;
+scene.add(mainSpot);
+
+const emeraldLight = new THREE.PointLight(0x34d399, 4.0, 15);
+emeraldLight.position.set(-4, -2, 3);
+scene.add(emeraldLight);
+
+const rimLight = new THREE.DirectionalLight(0x059669, 2.2);
+rimLight.position.set(0, -6, -3);
+scene.add(rimLight);
+
+// Tarjeta Grupo Raíz
+const cardRoot = new THREE.Group();
+scene.add(cardRoot);
+
+// Soporte fijo: sigue la posición y el giro de la tarjeta, pero no se inclina con ella
+const standRoot = new THREE.Group();
+scene.add(standRoot);
+
+// Geometría tarjeta redondeada VERTICAL (dimensiones tarjeta vertical ~2.2 de ancho x 3.5 de alto)
+function createRoundedRectShape(w, h, r) {
+    const shape = new THREE.Shape();
+    const x = -w / 2, y = -h / 2;
+    shape.moveTo(x + r, y);
+    shape.lineTo(x + w - r, y);
+    shape.quadraticCurveTo(x + w, y, x + w, y + r);
+    shape.lineTo(x + w, y + h - r);
+    shape.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    shape.lineTo(x + r, y + h);
+    shape.quadraticCurveTo(x, y + h, x, y + h - r);
+    shape.lineTo(x, y + r);
+    shape.quadraticCurveTo(x, y, x + r, y);
+    return shape;
+}
+
+const cardW = 2.24;
+const cardH = 3.56;
+const cardDepth = 0.045;
+const cardRadius = 0.16;
+
+const cardShape = createRoundedRectShape(cardW, cardH, cardRadius);
+const extrudeConfig = { depth: cardDepth, bevelEnabled: true, bevelSegments: 4, steps: 1, bevelSize: 0.02, bevelThickness: 0.02 };
+const cardGeo = new THREE.ExtrudeGeometry(cardShape, extrudeConfig);
+cardGeo.center();
+
+// Las UV de ExtrudeGeometry están en unidades del mundo; las llevamos a 0..1 para que la textura cubra la cara
+function normalizeUV(geo) {
+    geo.computeBoundingBox();
+    const bb = geo.boundingBox;
+    const pos = geo.attributes.position;
+    const uv = geo.attributes.uv;
+    for (let i = 0; i < pos.count; i++) {
+        uv.setXY(i, (pos.getX(i) - bb.min.x) / (bb.max.x - bb.min.x), (pos.getY(i) - bb.min.y) / (bb.max.y - bb.min.y));
+    }
+    uv.needsUpdate = true;
+}
+normalizeUV(cardGeo);
+
+// Textura Frontal Vertical (Idéntica a la imagen de referencia: Wifi/contactless arriba, G central grande, 5 estrellas doradas, "Review us on Google")
+const frontCanvas = document.createElement('canvas');
+frontCanvas.width = 648;
+frontCanvas.height = 1024;
+const ctx = frontCanvas.getContext('2d');
+
+function renderFrontTexture() {
+    // Fondo Blanco Puro Satinado
+    const grad = ctx.createLinearGradient(0, 0, 648, 1024);
+    grad.addColorStop(0, '#ffffff');
+    grad.addColorStop(1, '#f8fafc');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 648, 1024);
+
+    // Sutil biselado perimetral
+    ctx.strokeStyle = '#f1f5f9';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(10, 10, 628, 1004);
+
+    // 1. Icono NFC / Wifi superior negro sólido idéntico a la foto
+    const wifiX = 324;
+    const wifiY = 175;
+    ctx.fillStyle = '#1e293b';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 24;
+    ctx.lineCap = 'round';
+
+    // Punto base
+    ctx.beginPath();
+    ctx.arc(wifiX, wifiY + 12, 15, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Arco intermedio
+    ctx.beginPath();
+    ctx.arc(wifiX, wifiY + 16, 56, -Math.PI * 0.76, -Math.PI * 0.24);
+    ctx.stroke();
+
+    // Arco exterior
+    ctx.beginPath();
+    ctx.arc(wifiX, wifiY + 16, 100, -Math.PI * 0.74, -Math.PI * 0.26);
+    ctx.stroke();
+
+    // 2. Logo oficial "G" de Google: anillo con hueco arriba a la derecha y barra azul (geometría del logo oficial)
+    const gx = 324, gy = 400;
+    const gOuter = 165;                     // radio exterior
+    const gInner = gOuter * (14.5 / 24);    // radio interior
+    const gRing = (gOuter + gInner) / 2;    // radio de la línea central del anillo
+    const k = gOuter / 24;                  // escala desde la unidad del logo oficial
+    const deg = (a) => a * Math.PI / 180;
+    ctx.lineWidth = gOuter - gInner;
+    ctx.lineCap = 'butt';
+    const gArc = (color, a0, a1) => {
+        ctx.strokeStyle = color;
+        ctx.beginPath();
+        ctx.arc(gx, gy, gRing, deg(a0), deg(a1));
+        ctx.stroke();
+    };
+    gArc('#EA4335', 206, 310); // rojo (arriba)
+    gArc('#FBBC05', 153, 206); // amarillo (izquierda)
+    gArc('#34A853', 49, 153);  // verde (abajo)
+    gArc('#4285F4', 0, 49);    // azul (derecha)
+
+    // Barra horizontal azul de la G
+    ctx.fillStyle = '#4285F4';
+    ctx.fillRect(gx, gy - 4 * k, 23 * k, 9 * k);
+
+    // 3. 5 Estrellas Doradas alineadas
+    const starStartX = 148, starY = 620, starSpacing = 88;
+    function drawStar(cx, cy, spikes, outerR, innerR) {
+        let rot = Math.PI / 2 * 3;
+        let x = cx, y = cy;
+        let step = Math.PI / spikes;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy - outerR);
+        for (let i = 0; i < spikes; i++) {
+            x = cx + Math.cos(rot) * outerR;
+            y = cy + Math.sin(rot) * outerR;
+            ctx.lineTo(x, y);
+            rot += step;
+            x = cx + Math.cos(rot) * innerR;
+            y = cy + Math.sin(rot) * innerR;
+            ctx.lineTo(x, y);
+            rot += step;
+        }
+        ctx.lineTo(cx, cy - outerR);
+        ctx.closePath();
+        ctx.fillStyle = '#f59e0b';
+        ctx.fill();
+    }
+    for (let s = 0; s < 5; s++) {
+        drawStar(starStartX + s * starSpacing, starY, 5, 32, 16);
+    }
+
+    // 4. Texto "Review us"
+    ctx.fillStyle = '#1e293b';
+    ctx.font = 'bold 68px "Plus Jakarta Sans", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Review us', 324, 735);
+
+    // 5. Texto "on Google" con "on" en gris y "Google" en su estilo
+    ctx.font = 'bold 68px "Plus Jakarta Sans", sans-serif';
+    const onWidth = ctx.measureText('on ').width;
+    
+    // Calculamos el inicio para centrar "on Google"
+    // Medidas aproximadas para los caracteres de Google
+    ctx.font = 'bold 68px "Plus Jakarta Sans", sans-serif';
+    const totalOnGoogleWidth = ctx.measureText('on Google').width;
+    let currentX = 324 - (totalOnGoogleWidth / 2);
+
+    ctx.textAlign = 'left';
+    ctx.fillStyle = '#1e293b';
+    ctx.fillText('on ', currentX, 815);
+    currentX += onWidth;
+
+    // Colores de Google: G (azul), o (rojo), o (amarillo), g (azul), l (verde), e (rojo)
+    const googleLetters = [
+        { char: 'G', color: '#4285F4' },
+        { char: 'o', color: '#EA4335' },
+        { char: 'o', color: '#FBBC05' },
+        { char: 'g', color: '#4285F4' },
+        { char: 'l', color: '#34A853' },
+        { char: 'e', color: '#EA4335' }
+    ];
+
+    googleLetters.forEach(item => {
+        ctx.fillStyle = item.color;
+        ctx.fillText(item.char, currentX, 815);
+        currentX += ctx.measureText(item.char).width;
+    });
+
+    // Pequeño pie satinado con la marca RatingPro
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#059669';
+    ctx.font = '600 20px "Plus Jakarta Sans", sans-serif';
+    ctx.fillText('• RatingPro Contactless NFC •', 324, 915);
+}
+renderFrontTexture();
+
+const frontTex = new THREE.CanvasTexture(frontCanvas);
+frontTex.anisotropy = 8;
+
+// Textura Trasera Vertical (QR, Chip y Antena)
+const backCanvas = document.createElement('canvas');
+backCanvas.width = 648;
+backCanvas.height = 1024;
+const bCtx = backCanvas.getContext('2d');
+
+function renderBackTexture() {
+    bCtx.fillStyle = '#ffffff';
+    bCtx.fillRect(0, 0, 648, 1024);
+
+    // Pistas de cobre antena NFC vertical perimetral
+    bCtx.strokeStyle = '#b45309';
+    bCtx.lineWidth = 3;
+    for (let r = 0; r < 5; r++) {
+        bCtx.strokeRect(30 + r * 12, 30 + r * 12, 588 - r * 24, 964 - r * 24);
+    }
+
+    // Cabecera trasera
+    bCtx.fillStyle = '#064e3b';
+    bCtx.font = 'bold 36px "Plus Jakarta Sans", sans-serif';
+    bCtx.textAlign = 'center';
+    bCtx.fillText('RatingPro', 324, 150);
+
+    bCtx.fillStyle = '#64748b';
+    bCtx.font = '600 20px "Plus Jakarta Sans", sans-serif';
+    bCtx.fillText('Smart Review Card • Dual NFC + QR', 324, 190);
+
+    // Chip NFC central de cobre y metal
+    bCtx.fillStyle = '#064e3b';
+    bCtx.fillRect(274, 250, 100, 100);
+    bCtx.fillStyle = '#34d399';
+    bCtx.font = 'bold 16px monospace';
+    bCtx.fillText('NFC CHIP', 324, 308);
+
+    // Código QR HD centrado
+    const qrSize = 320;
+    const qrX = (648 - qrSize) / 2;
+    const qrY = 440;
+    bCtx.fillStyle = '#064e3b';
+    bCtx.fillRect(qrX, qrY, qrSize, qrSize);
+    bCtx.fillStyle = '#ffffff';
+    bCtx.fillRect(qrX + 20, qrY + 20, qrSize - 40, qrSize - 40);
+
+    // Patrones simulados de QR
+    bCtx.fillStyle = '#064e3b';
+    bCtx.fillRect(qrX + 45, qrY + 45, 65, 65);
+    bCtx.fillRect(qrX + 210, qrY + 45, 65, 65);
+    bCtx.fillRect(qrX + 45, qrY + 210, 65, 65);
+    bCtx.fillRect(qrX + 130, qrY + 130, 60, 60);
+    bCtx.fillRect(qrX + 205, qrY + 195, 70, 70);
+
+    bCtx.fillStyle = '#0f172a';
+    bCtx.font = 'bold 24px "Plus Jakarta Sans", sans-serif';
+    bCtx.textAlign = 'center';
+    bCtx.fillText('Escaneo alternativo con cámara', 324, 830);
+
+    bCtx.fillStyle = '#64748b';
+    bCtx.font = '18px "Plus Jakarta Sans", sans-serif';
+    bCtx.fillText('Compatible con 100% smartphones', 324, 870);
+    bCtx.fillText('Sin apps adicionales ni cuotas', 324, 905);
+}
+renderBackTexture();
+
+const backTex = new THREE.CanvasTexture(backCanvas);
+backTex.anisotropy = 8;
+
+const frontMat = new THREE.MeshBasicMaterial({ map: frontTex });
+const backMat = new THREE.MeshBasicMaterial({ map: backTex });
+const edgeMat = new THREE.MeshPhongMaterial({ color: 0xffffff, specular: 0x666666, shininess: 80 });
+
+// La tarjeta se inclina alrededor de su canto inferior para apoyar sobre el soporte
+const tiltPivot = new THREE.Group();
+tiltPivot.position.set(0, -cardH / 2, 0);
+cardRoot.add(tiltPivot);
+const cardFace = new THREE.Group();
+cardFace.position.set(0, cardH / 2, 0);
+tiltPivot.add(cardFace);
+
+const cardMesh = new THREE.Mesh(cardGeo, edgeMat);
+cardMesh.castShadow = true;
+cardMesh.receiveShadow = true;
+cardFace.add(cardMesh);
+
+// Caras frontal y trasera con la misma forma redondeada, por encima de las caras del cuerpo
+const faceGeo = new THREE.ShapeGeometry(cardShape);
+faceGeo.center();
+normalizeUV(faceGeo);
+const faceOffset = cardDepth / 2 + 0.024; // mitad del grosor con bisel + margen
+
+const frontMesh = new THREE.Mesh(faceGeo, frontMat);
+frontMesh.position.z = faceOffset;
+cardFace.add(frontMesh);
+
+const backMesh = new THREE.Mesh(faceGeo, backMat);
+backMesh.position.z = -faceOffset;
+backMesh.rotation.y = Math.PI;
+cardFace.add(backMesh);
+
+// Vuelve a pintar las texturas cuando cargan las fuentes, para que el texto use Plus Jakarta Sans
+if (document.fonts) {
+    document.fonts.ready.then(() => {
+        renderFrontTexture();
+        frontTex.needsUpdate = true;
+        renderBackTexture();
+        backTex.needsUpdate = true;
+    });
+}
+
+// Soporte en L: placa plana del mismo ancho que la tarjeta. Sale solo por detrás y apoya en el canto inferior
+const standMat = new THREE.MeshPhongMaterial({ color: 0xffffff, specular: 0x333333, shininess: 30 });
+const standTopY = -cardH / 2 - 0.02; // superficie donde apoya el canto inferior de la tarjeta
+const standBottomY = standTopY - 0.14;
+// Perfil en (x, y) con x = -z: los valores positivos de x quedan por detrás de la tarjeta
+const standShape = new THREE.Shape();
+standShape.moveTo(0.0, standBottomY); // frente de la placa: queda bajo la tarjeta, sin sobresalir por delante
+standShape.lineTo(0.7, standBottomY);
+standShape.quadraticCurveTo(0.75, standBottomY, 0.75, standBottomY + 0.04); // esquina trasera redondeada
+standShape.lineTo(0.75, standTopY);
+standShape.lineTo(0.2, standTopY);
+standShape.quadraticCurveTo(0.0425, standTopY, 0.058, standTopY + 0.12); // pliegue redondeado con la cara trasera
+standShape.lineTo(0.0, standTopY + 0.12);
+standShape.closePath();
+const standGeo = new THREE.ExtrudeGeometry(standShape, { depth: cardW, bevelEnabled: true, bevelSize: 0.01, bevelThickness: 0.01, bevelSegments: 2, steps: 1 });
+standGeo.rotateY(Math.PI / 2); // la profundidad pasa a ser el ancho (eje X)
+standGeo.translate(-cardW / 2, 0, 0); // centrado en X, con el mismo ancho que la tarjeta
+const standMesh = new THREE.Mesh(standGeo, standMat);
+standMesh.castShadow = true;
+standMesh.receiveShadow = true;
+standRoot.add(standMesh);
+
+// Ondas NFC animadas al tocar
+const rippleGeo = new THREE.RingGeometry(0.2, 0.3, 32);
+const rippleMat = new THREE.MeshBasicMaterial({ color: 0x34d399, transparent: true, opacity: 0, side: THREE.DoubleSide });
+const rippleMesh = new THREE.Mesh(rippleGeo, rippleMat);
+rippleMesh.position.set(0, 0.85, cardDepth / 2 + 0.05); // Ubicado cerca del icono wifi superior
+cardFace.add(rippleMesh);
+
+let rippleScale = 1;
+let isRippling = false;
+
+// Partículas verdes flotantes de energía
+const pCount = 130;
+const pGeo = new THREE.BufferGeometry();
+const pPos = new Float32Array(pCount * 3);
+for (let i = 0; i < pCount * 3; i += 3) {
+    pPos[i] = (Math.random() - 0.5) * 11;
+    pPos[i + 1] = (Math.random() - 0.5) * 10;
+    pPos[i + 2] = (Math.random() - 0.5) * 8;
+}
+pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+const pMat = new THREE.PointsMaterial({
+    color: 0x34d399,
+    size: 0.045,
+    transparent: true,
+    opacity: 0.85,
+    blending: THREE.AdditiveBlending
+});
+const particles = new THREE.Points(pGeo, pMat);
+scene.add(particles);
+
+// Controles de interacción 360 y Tap
+let isDragging = false;
+let startPointer = { x: 0, y: 0 };
+const REST_TILT_X = -0.15; // negativo: la cara de la tarjeta mira levemente hacia arriba
+let currentRotation = { x: 0, y: -0.15 };
+let targetRotation = { x: 0, y: -0.15 };
+let pointerMoveCount = 0;
+
+function triggerTapFeedback() {
+    isRippling = true;
+    rippleScale = 0.5;
+    rippleMat.opacity = 0.95;
+    emeraldLight.intensity = 8.5;
+    setTimeout(() => { emeraldLight.intensity = 4.0; }, 400);
+}
+
+function onDown(e) {
+    isDragging = true;
+    pointerMoveCount = 0;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    startPointer = { x: clientX, y: clientY };
+}
+
+function onMove(e) {
+    if (!isDragging) return;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    const dx = clientX - startPointer.x;
+    const dy = clientY - startPointer.y;
+    pointerMoveCount += Math.abs(dx) + Math.abs(dy);
+
+    targetRotation.y += dx * 0.009;
+    targetRotation.x += dy * 0.009;
+    startPointer = { x: clientX, y: clientY };
+}
+
+function onUp() {
+    if (isDragging && pointerMoveCount < 8) {
+        triggerTapFeedback();
+    }
+    isDragging = false;
+}
+
+container.addEventListener('mousedown', onDown);
+window.addEventListener('mousemove', onMove);
+window.addEventListener('mouseup', onUp);
+container.addEventListener('touchstart', onDown, { passive: true });
+window.addEventListener('touchmove', onMove, { passive: true });
+window.addEventListener('touchend', onUp);
+
+// Botones de acción rápida
+window.rotateCardToFront = () => { targetRotation.x = 0; targetRotation.y = 0; };
+window.rotateCardToBack = () => { targetRotation.x = 0; targetRotation.y = Math.PI; };
+window.triggerNFCTap = () => { triggerTapFeedback(); };
+
+// Scroll reactive
+let scrollNorm = 0;
+window.addEventListener('scroll', () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    scrollNorm = max > 0 ? window.scrollY / max : 0;
+});
+
+// Render loop
+const clock = new THREE.Clock();
+
+function animate() {
+    requestAnimationFrame(animate);
+    const time = clock.getElapsedTime();
+
+    currentRotation.x += (targetRotation.x - currentRotation.x) * 0.08;
+    currentRotation.y += (targetRotation.y - currentRotation.y) * 0.08;
+
+    const idleY = Math.sin(time * 1.5) * 0.08;
+    const idleRotZ = Math.cos(time * 1.2) * 0.03;
+
+    cardRoot.position.y = idleY - (scrollNorm * 0.2);
+    tiltPivot.rotation.x = REST_TILT_X + currentRotation.x + Math.sin(time * 0.8) * 0.03;
+    cardRoot.rotation.y = currentRotation.y + (scrollNorm * Math.PI * 2.2);
+    cardRoot.rotation.z = idleRotZ;
+    standRoot.position.copy(cardRoot.position); // el soporte sigue a la tarjeta, pero no se inclina con ella
+    standRoot.rotation.copy(cardRoot.rotation);
+
+    if (isRippling) {
+        rippleScale += 0.09;
+        rippleMat.opacity -= 0.025;
+        rippleMesh.scale.set(rippleScale, rippleScale, 1);
+        if (rippleMat.opacity <= 0.02) {
+            isRippling = false;
+            rippleMat.opacity = 0;
+        }
+    }
+
+    particles.rotation.y = time * 0.02;
+    particles.rotation.x = time * 0.01;
+
+    renderer.render(scene, camera);
+}
+animate();
+
+window.addEventListener('resize', () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || (window.innerHeight * 0.65);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+});
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_16 -->
+<!-- Floating Interactive Controls overlayed below viewport -->
+<div class="mt-3 grid grid-cols-2 gap-2 relative z-20">
+<button class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 active:scale-95 text-surface-bright backdrop-blur-md border border-white/10 text-label-sm font-semibold transition-all shadow-sm" onclick="window.rotateCardToFront &amp;&amp; window.rotateCardToFront()" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">flip_to_front</span>
+<span>Ver Frontal</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 active:scale-95 text-surface-bright backdrop-blur-md border border-white/10 text-label-sm font-semibold transition-all shadow-sm" onclick="window.rotateCardToBack &amp;&amp; window.rotateCardToBack()" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">qr_code_2</span>
+<span>Ver Trasera (QR)</span>
+</button>
+</div>
+<!-- Simular Toque NFC Button -->
+<button class="mt-2 w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-secondary hover:bg-primary-container text-on-secondary active:scale-[0.98] font-label-md text-label-md font-bold shadow-lg shadow-secondary/20 transition-all border border-tertiary-fixed/30 relative z-20" onclick="window.triggerNFCTap &amp;&amp; window.triggerNFCTap()" type="button">
+<span class="material-symbols-outlined text-[20px] text-tertiary-fixed animate-pulse">contactless</span>
+<span>Simular Toque NFC (Destello &amp; Ondas)</span>
+</button>
+<p class="text-center font-label-sm text-[11px] text-on-primary-container mt-2">Arrastra con el dedo o ratón para giro libre 360° • Toca la tarjeta para simular lectura</p>
+</div>
+<!-- TARJETAS DE INSPECCIÓN INTERACTIVA (Micro-interacciones de características físicas) -->
+<div class="flex flex-col gap-2 mt-2">
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider px-1">Detalles de ingeniería física</span>
+<div class="grid grid-cols-2 gap-2">
+<!-- Tarjeta 1: Formato vertical & Contactless -->
+<div class="group p-3 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 hover:border-secondary transition-all cursor-pointer hover:shadow-md flex flex-col gap-1.5" onclick="window.triggerNFCTap &amp;&amp; window.triggerNFCTap()">
+<div class="w-8 h-8 rounded-lg bg-secondary-container/30 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[20px]">contactless</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary">Contactless Superior</span>
+<p class="font-body-sm text-[12px] leading-tight text-on-surface-variant">Icono NFC visible arriba con bobina de cobre interior para toque instantáneo.</p>
+</div>
+<!-- Tarjeta 2: Acabado PVC resistente al agua -->
+<div class="group p-3 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 hover:border-secondary transition-all cursor-pointer hover:shadow-md flex flex-col gap-1.5">
+<div class="w-8 h-8 rounded-lg bg-secondary-container/30 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[20px]">water_drop</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary">PVC Antiarañazos</span>
+<p class="font-body-sm text-[12px] leading-tight text-on-surface-variant">100% impermeable en acabado satinado, apto para líquidos y uso continuo.</p>
+</div>
+<!-- Tarjeta 3: G oficial en relieve + 5 estrellas y Review us on Google -->
+<div class="group p-3 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 hover:border-secondary transition-all cursor-pointer hover:shadow-md flex flex-col gap-1.5" onclick="window.rotateCardToFront &amp;&amp; window.rotateCardToFront()">
+<div class="w-8 h-8 rounded-lg bg-secondary-container/30 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary">G Oficial + 5 Estrellas</span>
+<p class="font-body-sm text-[12px] leading-tight text-on-surface-variant">Gran logo "G", 5 estrellas doradas y leyenda "Review us on Google".</p>
+</div>
+<!-- Tarjeta 4: Base acrílica vertical incluida -->
+<div class="group p-3 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 hover:border-secondary transition-all cursor-pointer hover:shadow-md flex flex-col gap-1.5">
+<div class="w-8 h-8 rounded-lg bg-secondary-container/30 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[20px]">desktop_windows</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary">Base en L Incluida</span>
+<p class="font-body-sm text-[12px] leading-tight text-on-surface-variant">Soporte transparente acrílico de alta estabilidad para mostrador.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. CÓMO FUNCIONA -->
+<section class="w-full px-gutter-mobile py-space-xl bg-surface-container-low flex flex-col gap-space-lg scroll-mt-20" id="como-funciona">
+<div class="flex flex-col gap-1">
+<span class="font-label-lg text-label-lg text-secondary tracking-wider uppercase">Proceso intuitivo</span>
+<h2 class="font-headline-md text-headline-md text-primary">Cómo funciona</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Tan rápido y natural como pagar con el móvil. Sin barreras técnicas ni descargas.
+      </p>
+</div>
+<!-- 3 Steps Stack -->
+<div class="flex flex-col gap-space-md">
+<!-- Step 1 -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-container/30 flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[26px]">contactless</span>
+</div>
+<div class="flex flex-col gap-0.5 min-w-0">
+<span class="font-headline-sm text-headline-sm text-primary">1. Acerca el móvil</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            El cliente aproxima su teléfono a la tarjeta NFC o escanea el código QR de respaldo sin tocar botones extra.
+          </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-container/30 flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[26px]">open_in_browser</span>
+</div>
+<div class="flex flex-col gap-0.5 min-w-0">
+<span class="font-headline-sm text-headline-sm text-primary">2. Se abre tu ficha de Google</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Sin descargar aplicaciones ni registrarse, se despliega al instante el formulario oficial de reseñas de tu negocio.
+          </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-container/30 flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div class="flex flex-col gap-0.5 min-w-0">
+<span class="font-headline-sm text-headline-sm text-primary">3. Reseña en segundos</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Selecciona las estrellas, comparte su satisfacción y la reseña queda publicada en Google en tiempo real.
+          </p>
+</div>
+</div>
+</div>
+<!-- Conversion Stat Callout -->
+<div class="p-space-md rounded-xl bg-secondary-container/30 flex items-center gap-space-sm shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[28px] shrink-0">trending_up</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary-container">+80% de conversión</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">in situ, antes de que el cliente salga de tu local.</span>
+</div>
+</div>
+</section>
+<!-- 3. VENTAJAS PARA TU NEGOCIO LOCAL -->
+<section class="w-full px-gutter-mobile py-space-xl bg-surface flex flex-col gap-space-lg scroll-mt-20" id="ventajas">
+<div class="flex flex-col gap-1">
+<span class="font-label-lg text-label-lg text-secondary tracking-wider uppercase">Crecimiento real</span>
+<h2 class="font-headline-md text-headline-md text-primary">Ventajas para tu negocio local</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Diseñadas específicamente para el ritmo de hostelería, clínicas y comercios exigentes.
+      </p>
+</div>
+<!-- Cards List -->
+<div class="flex flex-col gap-space-md">
+<!-- Card 1 -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-secondary">
+<span class="material-symbols-outlined text-[22px]">rocket_launch</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Más reseñas y mejor SEO</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Sube posiciones en Google Maps frente a tus competidores y atrae nuevos clientes que buscan activamente en tu zona.
+        </p>
+</div>
+<!-- Card 2 -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-secondary">
+<span class="material-symbols-outlined text-[22px]">phonelink_setup</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Sin apps ni configuraciones</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Funciona de forma 100% nativa con cualquier iPhone o smartphone Android moderno, sin fricciones para tu equipo ni para el cliente.
+        </p>
+</div>
+<!-- Card 3 -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-secondary">
+<span class="material-symbols-outlined text-[22px]">nfc</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Doble tecnología (NFC + QR)</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Si algún móvil no tiene NFC activo, el código QR impreso en alta resolución garantiza el acceso instantáneo al mismo enlace.
+        </p>
+</div>
+<!-- Card 4 -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-secondary">
+<span class="material-symbols-outlined text-[22px]">palette</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Personalizada con tu marca</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Impresión duradera con tu logotipo oficial y tipografías corporativas, integrándose perfectamente en la estética de tu local.
+        </p>
+</div>
+<!-- Card 5 -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-secondary">
+<span class="material-symbols-outlined text-[22px]">verified</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Resistente y sin cuotas</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Material impermeable y antiarañazos apto para hostelería. Pago único sin suscripciones ni costes de mantenimiento ocultos.
+        </p>
+</div>
+</div>
+<!-- Mid CTA -->
+<a class="w-full h-12 flex items-center justify-center gap-space-xs bg-secondary hover:bg-primary-container text-on-secondary rounded-xl font-label-lg text-label-lg shadow-md transition-all" href="#contacto">
+<span>Pedir más información</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+</section>
+<!-- 4. ¿PARA QUIÉN ES? -->
+<section class="w-full px-gutter-mobile py-space-xl bg-surface-container-low flex flex-col gap-space-lg">
+<div class="flex flex-col gap-1">
+<span class="font-label-lg text-label-lg text-secondary tracking-wider uppercase">Sectores locales</span>
+<h2 class="font-headline-md text-headline-md text-primary">¿Para quién es RatingPro?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        La herramienta indispensable para comercios que viven de la confianza y el boca a boca digital.
+      </p>
+</div>
+<!-- 2-col sector grid -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="p-space-md bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col items-center text-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[30px]">local_cafe</span>
+<span class="font-headline-sm text-headline-sm text-primary">Bares y Cafés</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">En mostrador y terraza</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col items-center text-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[30px]">restaurant</span>
+<span class="font-headline-sm text-headline-sm text-primary">Restaurantes</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Junto a la cuenta</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col items-center text-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[30px]">content_cut</span>
+<span class="font-headline-sm text-headline-sm text-primary">Peluquerías</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Barberías y salones</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col items-center text-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[30px]">dentistry</span>
+<span class="font-headline-sm text-headline-sm text-primary">Clínicas</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Dentistas y salud</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col items-center text-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[30px]">shopping_bag</span>
+<span class="font-headline-sm text-headline-sm text-primary">Tiendas</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Boutiques y retail</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col items-center text-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[30px]">build</span>
+<span class="font-headline-sm text-headline-sm text-primary">Talleres</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mecánica y servicios</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col items-center text-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[30px]">hotel</span>
+<span class="font-headline-sm text-headline-sm text-primary">Hoteles</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Recepción y check-out</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col items-center text-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[30px]">spa</span>
+<span class="font-headline-sm text-headline-sm text-primary">Estética</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Bienestar y spa</span>
+</div>
+</div>
+</section>
+<!-- 5. GALERÍA DE ACABADOS Y FOTOS -->
+<section class="w-full px-gutter-mobile py-space-xl bg-surface flex flex-col gap-space-lg">
+<div class="flex flex-col gap-1">
+<span class="font-label-lg text-label-lg text-secondary tracking-wider uppercase">Calidad tangible</span>
+<h2 class="font-headline-md text-headline-md text-primary">Galería de fotos y acabados</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Materiales de máxima durabilidad con protección antiarañazos e impermeable.
+      </p>
+</div>
+<!-- Gallery Stack -->
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm">
+<img class="w-full h-48 object-cover" data-alt="A sleek, high quality NFC contactless card resting on a clean wooden restaurant table next to an espresso cup and glass of water, with soft natural sunlight reflecting its matte finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw7BtC4uz5IOqTHnrgXhs4toLjC9Q94eN-99C0_98fwz0RTHaCxmqJrBlFUnSIKnkRgQiXQ2NjZG3vgxetjGK7HdNcfer6ROwc9lpNUbTTiQey5KKv0Wi8E4NQo-k_IQhlYxJHGjjOlmmBhu31xCQlTUOVVuBWhSdUndi5pZAxGjZFIY2Te_Ah6vz486hGXxr4zsVJyXBLAxaf9MDEyILyKJ1ukjzVuFCe143kG8PubkCzFGHKOHzs1Q"/>
+<div class="p-space-md flex flex-col gap-0.5">
+<span class="font-headline-sm text-headline-sm text-primary">Sobre mesa de restaurante</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Discreta, elegante y lista para la cuenta.</span>
+</div>
+</div>
+<div class="flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm">
+<img class="w-full h-48 object-cover" data-alt="Macro detail of an NFC review card standing on an acrylic stand next to a contactless payment terminal in a modern boutique shop, crisp emerald green accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBphgE-ooMIZpt4Duxk2kebUP5hxsjLZHDkO-7J4fHWmCpwEklzVWtUCO6heC3hH4MOsV-PtoRoMh29Gqy0BbjUtn1CPsmuYdAQNV1sKtu3kVf5hvZrA874L2HhYjs7HGxQ7lpkA71nm9a6vz7wbtpfYo_6f7c7OWy7PHs6uP4NgXT0_XTMtWONcpc4ENHUUDTcBWVRUKXrP4oLrlZRPEfe5KMFC2fJvWZefnX-8FbNVLzCZdazYi-hQ"/>
+<div class="p-space-md flex flex-col gap-0.5">
+<span class="font-headline-sm text-headline-sm text-primary">En el mostrador de cobro</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">El momento clave: satisfacción fresca y máxima predisposición.</span>
+</div>
+</div>
+</div>
+<a class="w-full h-12 flex items-center justify-center gap-space-xs bg-secondary hover:bg-primary text-on-secondary rounded-xl font-label-lg text-label-lg shadow-md transition-colors" href="#contacto">
+<span>Preguntar por mi tarjeta</span>
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</a>
+</section>
+<!-- 6. PREGUNTAS FRECUENTES (FAQ ACORDEÓN) -->
+<section class="w-full px-gutter-mobile py-space-xl bg-surface-container-low flex flex-col gap-space-lg">
+<div class="flex flex-col gap-1">
+<span class="font-label-lg text-label-lg text-secondary tracking-wider uppercase">Dudas resueltas</span>
+<h2 class="font-headline-md text-headline-md text-primary">Preguntas frecuentes</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Todo lo que necesitas saber antes de empezar a sumar reseñas de 5 estrellas.
+      </p>
+</div>
+<!-- Accordion items with inline toggles -->
+<div class="flex flex-col gap-space-sm" id="faq-container">
+<!-- FAQ 1 -->
+<details class="group p-space-md rounded-2xl bg-surface-container-lowest shadow-sm [&amp;_summary::-webkit-details-marker]:hidden cursor-pointer" open="">
+<summary class="flex items-center justify-between font-headline-sm text-headline-sm text-primary list-none">
+<span>¿El cliente necesita instalar alguna app?</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<p class="mt-space-sm font-body-sm text-body-sm text-on-surface-variant">
+          No. La tecnología NFC y el lector QR están integrados en el sistema operativo de cualquier iPhone y Android. El cliente solo acerca su móvil y se abre Google directamente.
+        </p>
+</details>
+<!-- FAQ 2 -->
+<details class="group p-space-md rounded-2xl bg-surface-container-lowest shadow-sm [&amp;_summary::-webkit-details-marker]:hidden cursor-pointer">
+<summary class="flex items-center justify-between font-headline-sm text-headline-sm text-primary list-none">
+<span>¿Funciona con todos los modelos de móvil?</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<p class="mt-space-sm font-body-sm text-body-sm text-on-surface-variant">
+          Sí. Los smartphones modernos leen el chip NFC por defecto. En caso de terminales antiguos con NFC desactivado, el código QR de respaldo impreso garantiza el 100% de cobertura.
+        </p>
+</details>
+<!-- FAQ 3 -->
+<details class="group p-space-md rounded-2xl bg-surface-container-lowest shadow-sm [&amp;_summary::-webkit-details-marker]:hidden cursor-pointer">
+<summary class="flex items-center justify-between font-headline-sm text-headline-sm text-primary list-none">
+<span>¿Puedo personalizarla con mi logotipo?</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<p class="mt-space-sm font-body-sm text-body-sm text-on-surface-variant">
+          Por supuesto. Grabamos e imprimimos tu logotipo oficial, colores y vinculamos la tarjeta con el enlace exacto a tu ficha oficial de Google Maps.
+        </p>
+</details>
+<!-- FAQ 4 -->
+<details class="group p-space-md rounded-2xl bg-surface-container-lowest shadow-sm [&amp;_summary::-webkit-details-marker]:hidden cursor-pointer">
+<summary class="flex items-center justify-between font-headline-sm text-headline-sm text-primary list-none">
+<span>¿Cómo hago el pedido?</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<p class="mt-space-sm font-body-sm text-body-sm text-on-surface-variant">
+          Solo tienes que escribirnos por WhatsApp o por correo electrónico. Te asesoramos de inmediato y te enviamos tu tarjeta completamente configurada lista para usar.
+        </p>
+</details>
+</div>
+</section>
+<!-- 7. SECCIÓN FINAL DE CONTACTO DESTACADA (#contacto) -->
+<section class="w-full px-gutter-mobile py-space-xl bg-primary-container text-on-primary flex flex-col gap-space-lg scroll-mt-20" id="contacto">
+<div class="flex flex-col gap-space-xs">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-secondary text-on-secondary font-label-md text-label-md w-fit">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span>Respuesta inmediata en minutos</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-surface-bright tracking-tight mt-1">
+        ¿Quieres más información? Escríbenos
+      </h2>
+<p class="font-body-md text-body-md text-on-primary-container leading-relaxed">
+        Te asesoramos en minutos y resolvemos cualquier duda sobre la configuración y entrega sin compromiso.
+      </p>
+</div>
+<!-- Large Contact Action Buttons -->
+<div class="flex flex-col gap-space-md">
+<!-- WhatsApp / Phone -->
+<a class="w-full p-space-md bg-secondary hover:bg-secondary/90 text-on-secondary rounded-2xl flex items-center justify-between shadow-lg transition-all active:scale-[0.99]" href="https://wa.me/34623949437" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px]">chat</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-tertiary-fixed font-bold uppercase tracking-wider">Atención directa</span>
+<span class="font-headline-sm text-headline-sm text-on-secondary break-words">WhatsApp: 623 949 437</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[22px] shrink-0">arrow_forward</span>
+</a>
+<!-- Direct Email -->
+<a class="w-full p-space-md bg-surface-container-lowest/10 hover:bg-surface-container-lowest/20 text-on-primary rounded-2xl flex items-center justify-between shadow-md transition-all active:scale-[0.99]" href="mailto:diegomugar2012@gmail.com">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px]">mail</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-tertiary-fixed font-bold uppercase tracking-wider">Correo electrónico</span>
+<span class="font-headline-sm text-headline-sm text-on-primary break-all">diegomugar2012@gmail.com</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[22px] shrink-0">send</span>
+</a>
+<!-- Direct Phone Call Anchor -->
+<div class="p-space-sm text-center">
+<a class="font-body-md text-body-md text-surface-container-high hover:text-surface-bright underline transition-colors" href="tel:+34623949437">
+          ¿Prefieres llamar? Pulsa aquí: <span class="font-bold text-on-secondary">+34 623 949 437</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 8. PIE DE PÁGINA -->
+<footer class="w-full px-gutter-mobile py-space-xl bg-primary text-surface-container-highest flex flex-col gap-space-lg">
+<!-- Brand Logo in Natural Proportion -->
+<div class="flex flex-col gap-space-xs">
+<div class="h-10 flex items-center">
+<img alt="RatingPro" class="h-10 w-auto max-w-[200px] object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_JfOli0cgMEc1SDjomswxhfs14ID12v5dqKRIey_p69lqAvHuvFjllhyvmZVL1Xcyf6x6tul-JcXHkpBLHE7dJlGmtwaVQymmXAlsosaoamehWPsmuIDcQcazStQqTjj9eOJVkkD5RvYYeAGxcvXrecX0ekqAntTv3UsOiufgFhaIjOVMfxkxg0_HvuSHFYEi1LWR-2SRXMQbsbHSrF6QuRkOj0nwpLdH9qruQz1_a8wRI0tMP_yeoZUmG7oFIKP1mVs"/>
+</div>
+<p class="font-body-sm text-body-sm text-on-primary-container leading-relaxed">
+        Tarjetas inteligentes NFC &amp; QR de Google Reseñas para negocios locales. Multiplica tu reputación y valoración media con la tecnología de toque más rápida y cómoda.
+      </p>
+</div>
+<!-- Direct Contact details block -->
+<div class="flex flex-col gap-space-xs p-space-md rounded-xl bg-surface-container-lowest/5">
+<span class="font-label-md text-label-md text-tertiary-fixed tracking-wider uppercase">Contacto directo</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">phone</span>
+<a class="font-body-md text-body-md text-surface-bright hover:underline" href="tel:+34623949437">623 949 437</a>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">email</span>
+<a class="font-body-md text-body-md text-surface-bright hover:underline truncate" href="mailto:diegomugar2012@gmail.com">diegomugar2012@gmail.com</a>
+</div>
+</div>
+<!-- Copyright -->
+<div class="pt-space-sm flex flex-col gap-1 text-center font-label-sm text-label-sm text-on-primary-container">
+<p>© 2026 RatingPro. Todos los derechos reservados.</p>
+<p>Tecnología NFC y código QR para captación física de reseñas Google.</p>
+</div>
+</footer>
+</div></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.04)]" data-active-classes="text-secondary font-bold"><div class="flex items-center justify-around h-16 px-space-xs w-full max-w-2xl mx-auto"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-0.5 transition-colors text-secondary font-bold" data-path="inicio" href="#inicio"><span class="material-symbols-outlined text-[22px]">home</span><span class="font-label-sm text-label-sm tracking-tight">Inicio</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="como-funciona" href="#como-funciona"><span class="material-symbols-outlined text-[22px]">contactless</span><span class="font-label-sm text-label-sm tracking-tight">Cómo funciona</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="ventajas" href="#ventajas"><span class="material-symbols-outlined text-[22px]">verified</span><span class="font-label-sm text-label-sm tracking-tight">Ventajas</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="contacto" href="#contacto"><span class="material-symbols-outlined text-[22px]">chat_bubble</span><span class="font-label-sm text-label-sm tracking-tight">Contacto</span></a></div></nav>
+<script>
+  // Marca como activo el enlace de la barra inferior según la sección visible
+  (function () {
+    var links = document.querySelectorAll('nav[data-active-classes] a[data-path]');
+    if (!('IntersectionObserver' in window)) return;
+    var visible = {};
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        visible[entry.target.id] = entry.isIntersecting;
+      });
+      // Si varias secciones están en la franja, gana la última en orden de página
+      var current = null;
+      links.forEach(function (link) {
+        if (visible[link.getAttribute('data-path')]) current = link.getAttribute('data-path');
+      });
+      if (!current) return;
+      links.forEach(function (link) {
+        var active = link.getAttribute('data-path') === current;
+        link.classList.toggle('text-secondary', active);
+        link.classList.toggle('font-bold', active);
+        link.classList.toggle('text-on-surface-variant', !active);
+        if (active) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    links.forEach(function (link) {
+      var section = document.getElementById(link.getAttribute('data-path'));
+      if (section) observer.observe(section);
+    });
+  })();
+</script>
+</body></html>
